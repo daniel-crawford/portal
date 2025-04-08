@@ -14,8 +14,9 @@ import os
 
 load_dotenv()  # Automatically loads from .env in the current directory
 
-USERNAME = os.getenv("username")
-PASSWORD = os.getenv("password")
+USERNAME = st.secrets["USERNAME"]
+PASSWORD = st.secrets["PASSWORD"]
+
 
 
 # ============================================
