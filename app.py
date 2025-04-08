@@ -41,7 +41,7 @@ def authenticate():
         username = st.text_input("Username")
         password = st.text_input("Password", type="password")
         if st.button("Login"):
-            if username == os.environ['username'] and password == os.environ['password'] :
+            if username == os.getenv('username') and password == os.getenv('password') :
                 st.session_state.authenticated = True
             else:
                 st.error("Invalid credentials")
