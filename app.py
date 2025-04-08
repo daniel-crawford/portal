@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import os
 import plotly.express as px
 from PIL import Image
 
@@ -40,7 +41,7 @@ def authenticate():
         username = st.text_input("Username")
         password = st.text_input("Password", type="password")
         if st.button("Login"):
-            if username == st.secrets['username'] and password == st.secrets['password'] :
+            if username == os.environ['username'] and password == os.environ['password'] :
                 st.session_state.authenticated = True
             else:
                 st.error("Invalid credentials")
