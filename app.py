@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import os
+
 import plotly.express as px
 from PIL import Image
 
@@ -9,7 +9,14 @@ from PIL import Image
 from utils.plot import generate_dummy_data, plot_usage, plot_cost
 
 from dotenv import load_dotenv
-load_dotenv()
+import os
+
+
+load_dotenv()  # Automatically loads from .env in the current directory
+
+USERNAME = os.getenv("username")
+PASSWORD = os.getenv("password")
+
 
 # ============================================
 # Constants and Config
@@ -41,7 +48,7 @@ def authenticate():
         username = st.text_input("Username")
         password = st.text_input("Password", type="password")
         if st.button("Login"):
-            if username == os.getenv('username') and password == os.getenv('password') :
+            if username == USERNAME and password == PASSWORD :
                 st.session_state.authenticated = True
             else:
                 st.error("Invalid credentials")
