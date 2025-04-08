@@ -9,7 +9,7 @@ from PIL import Image
 
 from utils.plot import generate_dummy_data, plot_usage, plot_cost
 
-load_dotenv()
+load_dotenv(".pwenv")
 
 # ============================================
 # Constants and Config
